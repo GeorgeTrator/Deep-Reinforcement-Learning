@@ -3,12 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deep Reinforcement Learning</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Apresentação IA</title>
+    <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="node_modules/reveal.js/dist/theme/black.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="main-container"></div>
-    <script src="script.js"></script>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Sumário -->
+            <section>
+                <h1 class="summary-title">SUMÁRIO</h1>
+                <div class="topics-container">
+                    <div class="topic-item">1) Contexto Geral</div>
+                    <div class="topic-item">2) Redes Neurais</div>
+                    <div class="topic-item">3) MDP</div>
+                    <div class="topic-item">4) Q-Learning</div>
+                    <div class="topic-item">5) DQN [Deep-Q-Network]</div>
+                    <div class="topic-item">6) Outros Exemplos</div>
+                </div>
+            </section>
+
+            <!-- Contexto Geral - Slides Verticais -->
+            <section>
+                <section>
+                    <div class="contexto-geral-container">
+                        <h1 class="contexto-geral-title">Contexto Geral: McCarthy e a IA</h1>
+                        <div class="contexto-geral-content">
+                            <div class="contexto-geral-left">
+                                <div class="mccarthy-text-item">Modelo Estatístico Multivariável?<i class="fas fa-times mccarthy-icon mccarthy-icon-times"></i></div>
+                                <div class="mccarthy-text-item">Inteligência Artificial<i class="fas fa-check mccarthy-icon mccarthy-icon-check"></i></div>
+                            </div>
+                            <div class="mccarthy-image-container">
+                                <img class="mccarthy-image" src="imgs/McCarthy.jpg" alt="John McCarthy">
+                            </div>
+                        </div>
+                        <div class="contexto-geral-footer">Não é inteligente nem artificial</div>
+                    </div>
+                </section>
+                <section>
+                    <h1>Rosenblatt: Perceptron</h1>
+                    <div style="display: flex; justify-content: space-around; align-items: center; width: 100%; height: 70%; margin-top: 20px;">
+                        <div style="display: flex; flex-direction: column; align-items: center; width: 45%;">
+                            <span style="font-size: 0.8rem; margin-bottom: 5px;">Figura - </span>
+                            <img src="imgs/foto_perceptron.png" alt="Frank Rosenblatt" style="width: 100%; max-height: 300px; object-fit: contain; border: 1px solid #28A745; border-radius: 5px;">
+                            <span style="font-size: 0.7rem; margin-top: 5px;">Fonte</span>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; width: 45%;">
+                            <span style="font-size: 0.8rem; margin-bottom: 5px;">Figura - </span>
+                            <img src="imgs/diagrama_perceptron.png" alt="Diagrama do Perceptron" style="width: 100%; max-height: 300px; object-fit: contain; border: 1px solid #28A745; border-radius: 5px;">
+                            <span style="font-size: 0.7rem; margin-top: 5px;">Fonte</span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; color: red; font-weight: bold; font-size: 0.9rem;">
+                        Limitado à classificação binária
+                    </div>
+                </section>
+                <section data-state="winter-theme">
+                    <div class="winter-content">
+                        <h1>Inverno da IA</h1>
+                        <p>Período de redução no financiamento e interesse em pesquisa de inteligência artificial</p>
+                        
+                        <div style="display: flex; justify-content: space-around; margin-top: 40px;">
+                            <div style="width: 45%;">
+                                <h3 style="color: #a8d8ea;">Causas</h3>
+                                <ul style="font-size: 1.2rem;">
+                                    <li>Limitações hardware</li>
+                                    <li>Expectativas irreais</li>
+                                    <li>Críticas ao perceptron</li>
+                                    <li>Redução de financiamento</li>
+                                </ul>
+                            </div>
+                            <div style="width: 45%;">
+                                <h3 style="color: #a8d8ea;">Consequências</h3>
+                                <ul style="font-size: 1.2rem;">
+                                    <li>Estagnação da pesquisa</li>
+                                    <li>Ceticismo na comunidade</li>
+                                    <li>Mudança de terminologia</li>
+                                    <li>Foco em problemas mais específicos</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 40px; font-style: italic; color: #a8d8ea; font-size: 20px;">
+                            Silicon Bubble
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h1>Ressurgimento da IA</h1>
+                    <p>Conteúdo sobre o ressurgimento da IA por volta de 2013</p>
+                </section>
+            </section>
+
+            <!-- Redes Neurais -->
+            <section>
+                <h1>Redes Neurais</h1>
+                <p>Conteúdo sobre Redes Neurais</p>
+            </section>
+
+            <!-- MDP -->
+            <section>
+                <h1>MDP (Processo de Decisão Markov)</h1>
+                <p>Conteúdo sobre MDP</p>
+            </section>
+
+            <!-- Q-Learning -->
+            <section>
+                <h1>Q-Learning</h1>
+                <p>Conteúdo sobre Q-Learning</p>
+            </section>
+
+            <!-- DQN -->
+            <section>
+                <h1>DQN (Deep Q-Network)</h1>
+                <p>Conteúdo sobre DQN</p>
+            </section>
+
+            <!-- Outros Exemplos -->
+            <section>
+                <h1>Outros Exemplos</h1>
+                <p>Conteúdo sobre outros exemplos</p>
+            </section>
+
+            <!-- RESUMO -->
+            <section>
+                <h1>Resumo</h1>
+                <p>Conteúdo do resumo da apresentação</p>
+            </section>
+        </div>
+    </div>
+
+    <script src="node_modules/reveal.js/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'slide',
+            backgroundTransition: 'fade'
+        });
+    </script>
+    <script>
+    // Adicionar funcionalidade de expansão de imagens
+    document.addEventListener('DOMContentLoaded', function() {
+        // Criar overlay para expansão de imagens
+        const overlay = document.createElement('div');
+        overlay.className = 'image-expand-overlay';
+        
+        const imageContainer = document.createElement('div');
+        imageContainer.className = 'image-expand-container';
+        
+        const expandedImg = document.createElement('img');
+        imageContainer.appendChild(expandedImg);
+        overlay.appendChild(imageContainer);
+        
+        document.body.appendChild(overlay);
+        
+        // Adicionar evento de clique para fechar
+        overlay.addEventListener('click', function() {
+            overlay.style.display = 'none';
+        });
+        
+        // Adicionar eventos de clique para todas as imagens
+        const allImages = document.querySelectorAll('img');
+        allImages.forEach(img => {
+            img.addEventListener('click', function(e) {
+                e.stopPropagation();
+                expandedImg.src = this.src;
+                overlay.style.display = 'flex';
+            });
+        });
+    });
+    </script>
+    <script>
+                // Adicionar controles para o tema de inverno
+        Reveal.addEventListener('ready', function() {
+            // Adicionar efeito de transição para o slide de inverno
+            Reveal.addEventListener('slidechanged', function(event) {
+                // Verificar se é o slide do Inverno da IA
+                if (event.currentSlide.querySelector('h1') && 
+                    event.currentSlide.querySelector('h1').textContent === 'Inverno da IA') {
+                    
+                    // Aplicar tema de inverno ao corpo
+                    document.querySelector('.reveal').classList.add('winter-theme');
+                    
+                    // Adicionar flocos de neve
+                    addSnowflakes();
+                    
+                } else {
+                    // Remover tema de inverno
+                    document.querySelector('.reveal').classList.remove('winter-theme');
+                    
+                    // Remover flocos de neve
+                    removeSnowflakes();
+                }
+            });
+        });
+
+        // Função para adicionar flocos de neve
+        function addSnowflakes() {
+            const snowflakes = document.createElement('div');
+            snowflakes.className = 'snowflakes';
+            
+            for (let i = 0; i < 50; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                snowflakes.appendChild(snowflake);
+            }
+            
+            document.querySelector('.reveal').appendChild(snowflakes);
+        }
+
+        // Função para remover flocos de neve
+        function removeSnowflakes() {
+            const snowflakes = document.querySelector('.snowflakes');
+            if (snowflakes) {
+                snowflakes.remove();
+            }
+        }
+
+    </script>
+
+
 </body>
 </html>

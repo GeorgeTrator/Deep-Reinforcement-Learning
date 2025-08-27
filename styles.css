@@ -1,53 +1,24 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #7da5cc;
     font-family: Arial, sans-serif;
     overflow: hidden;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-#main-container {
-    width: 80%;
-    height: 90%;
+.reveal .slides section {
     background-color: #000000;
-    border: 2px solid #28A745;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(111, 66, 193, 0.7);
     color: #FFFFFF;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
-    position: relative;
+    border: 2px solid #28A745;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(111, 66, 193, 0.7);
+    padding: 20px;
 }
-
-/* Transitions */
-
-#main-container {
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.fade-out {
-  opacity: 0;
-}
-
-.fade-in {
-  opacity: 1;
-}
-
-.slide-left {
-  transform: translateX(-50px);
-}
-
-.slide-right {
-  transform: translateX(50px);
-}
-
-
-
 
 .summary-title {
     text-align: center;
@@ -98,77 +69,6 @@ body {
     transform: translateY(-50%);
 }
 
-.topics-container::-webkit-scrollbar {
-    width: 12px;
-}
-
-.topics-container::-webkit-scrollbar-track{
-    background: rgba(40, 167, 69, 0.1);
-    border-radius: 10px;
-    border: 1px solid #28A745;    
-}
-
-.topics-container::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg, #28A745, #6F42C1);
-    border-radius: 10px;
-    border: 1px solid #000000;
-    box-shadow: 0 0 5px rgba(111, 66, 193, 0.7);
-}
-
-.topics-container::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, #6F42C1, #28A745);
-    box-shadow: 0 0 10px rgba(111, 66, 193, 0.9);
-}
-
-.nav-button {
-    position: absolute;
-    background: #28A745;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.8rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.nav-button:hover {
-    background: #6F42C1;
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(111, 66, 193, 0.7);
-}
-
-.next-button {
-    bottom: 25px;
-    right: 25px;
-}
-
-.prev-button {
-    bottom: 25px;
-    left: 25px;
-}
-
-/* Estilos para o conteúdo dos estados */
-#main-container h1 {
-    text-align: center;
-    color: #28A745;
-    font-size: 2.5rem;
-    margin-top: 50px;
-}
-
-#main-container p {
-    text-align: center;
-    font-size: 1.2rem;
-    margin: 20px 50px;
-    line-height: 1.6;
-}
-
-
-
 /* Estilos para Contexto Geral */
 .contexto-geral-container {
     display: flex;
@@ -208,77 +108,173 @@ body {
     font-size: 1.2rem;
 }
 
-    /* Estilos para McCarthy IA */
-    .mccarthy-text-item {
-        padding: 15px;
-        border: 1px solid #28A745;
-        border-radius: 8px;
-        position: relative;
-        padding-left: 50px;
-        font-size: 1.4rem;
-        background-color: rgba(40, 167, 69, 0.1);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+.mccarthy-text-item {
+    padding: 15px;
+    border: 1px solid #28A745;
+    border-radius: 8px;
+    position: relative;
+    padding-left: 50px;
+    font-size: 1.4rem;
+    background-color: rgba(40, 167, 69, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-    .mccarthy-icon {
-        position: absolute;
-        left: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 1.8rem;
-    }
+.mccarthy-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.8rem;
+}
 
-    .mccarthy-icon-times {
-        color: #ff4d4d;
-    }
+.mccarthy-icon-times {
+    color: #ff4d4d;
+}
 
-    .mccarthy-icon-check {
-        color: #28A745;
-    }
+.mccarthy-icon-check {
+    color: #28A745;
+}
 
+.mccarthy-image-container {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #28A745;
+    box-shadow: 0 0 15px rgba(111, 66, 193, 0.5);
+    flex-shrink: 0;
+}
+
+.mccarthy-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Outros estilos semelhantes ao original */
+.reveal h1 {
+    color: #28A745;
+    font-size: 2.5rem;
+}
+
+.reveal p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Ajustes para responsividade */
+@media (max-width: 768px) {
+    .contexto-geral-content {
+        flex-direction: column;
+    }
+    
     .mccarthy-image-container {
-        width: 300px;
-        height: 300px;
-        border-radius: 50%;
-        overflow: hidden;
-        border: 3px solid #28A745;
-        box-shadow: 0 0 15px rgba(111, 66, 193, 0.5);
-        flex-shrink: 0;
+        width: 200px;
+        height: 200px;
+        margin-top: 20px;
     }
-
-    .mccarthy-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    
+    .topic-item {
+        width: 90%;
+        font-size: 1.2rem;
     }
+}
 
-    /* Estilos para RosenBlatt */
+/* Estilos para expansão de imagens */
+.image-expand-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+}
 
+.image-expand-container {
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    /* Estilos para Inverno IA */
+.image-expand-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border: 2px solid #28A745;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(111, 66, 193, 0.7);
+}
 
+/* Efeito de transição gelada */
+.reveal .slides section[data-state="winter-theme"] {
+    background: linear-gradient(135deg, #0a2a42 0%, #1e3c5a 50%, #2c4e6e 100%);
+    color: #e6f7ff;
+    border-color: #a8d8ea !important;
+    transition: all 1.5s ease-in-out;
+}
 
-    /* Estilos para Ressurgimento */ 
+/* Estilo para o slide do inverno da IA */
 
-/* Fim de Estilos para Contexto Geral */
+/* Alterar o background da div principal durante o inverno da IA */
+.reveal.winter-theme {
+    background: linear-gradient(135deg, #0a2a42 0%, #1e3c5a 50%, #2c4e6e 100%) !important;
+}
 
-/* Estilos para Redes Neurais */
+/* Ajustar o fundo dos slides para transparente no tema de inverno */
+.reveal.winter-theme .slides section {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
 
+.winter-theme {
+    background: linear-gradient(135deg, #0a2a42 0%, #1e3c5a 50%, #2c4e6e 100%) !important;
+    color: #e6f7ff !important;
+}
 
+.winter-theme h1 {
+    color: #a8d8ea !important;
+    text-shadow: 0 0 15px rgba(168, 216, 234, 0.5);
+}
 
+.winter-theme p {
+    color: #c1e3f6 !important;
+}
 
+/* Efeito de flocos de neve */
+.snowflakes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
 
+.snowflake {
+    position: absolute;
+    color: #ffffff;
+    opacity: 0.5;
+    font-size: 16px;
+    animation: fall linear infinite;
+}
 
+@keyframes fall {
+    to {
+        transform: translateY(105vh);
+    }
+}
 
-
-
-
-
-/* Fim de estilos para Redes Neurais */
-
-/* For Firefox */
-.topics-container {
-    scrollbar-width: thin;
-    scrollbar-color: #6F42C1 #000000;
+/* Ajuste para conteúdo sobreposto */
+.winter-content {
+    position: relative;
+    z-index: 2;
 }
 
