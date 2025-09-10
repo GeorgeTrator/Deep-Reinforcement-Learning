@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apresentação IA</title>
-    <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css">
-    <link rel="stylesheet" href="node_modules/reveal.js/dist/theme/black.css">
+    <!-- CDNs para Reveal.js (versão 4.5.0) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -63,7 +64,7 @@
                 <section data-state="winter-theme">
                     <div class="winter-content">
                         <h1>Inverno da IA</h1>
-                        <p>Período de redução no financiamento e interesse em pesquisa de inteligência artificial</p>
+                        <p>Período de redução no financiamento và interesse em pesquisa de inteligência artificial</p>
                         
                         <div class="winter-container">
                             <div class="winter-column">
@@ -291,7 +292,7 @@
                     <p> st = Estado atual; at = Ação tomada no estado atual; α = Taxa de aprendizado*</p>
                     <p>r(t+1) = melhor recompensa do estado futuro; γ = Fator de desconto*</p>
                     <p>max = índice da melhor resposta futura [0: Pedir, 1: Parar]; st+1 = próximo estado</p>
-                    <p>*α e γ são parâmetros especiais (hiper-parâmetros)</p>
+                    <p>*α e γ são parâmetros especial (hiper-parâmetros)</p>
                 </section>
                 <section>
                     <h1>Resultados do Treinamento</h1>
@@ -560,7 +561,7 @@ class ReplayMemory(object):
                                 <i class="fas fa-project-diagram"></i>
                                 <h2>DQN</h2>
                                 <p>Combina Q-learning com redes profundas</p>
-                                <p>Replay de experiência e rede alvo</p>
+                                <p>Replay de experiência và rede alvo</p>
                             </div>
 
                     </div>
@@ -569,8 +570,19 @@ class ReplayMemory(object):
         </div>
     </div>
 
-    <script src="node_modules/reveal.js/dist/reveal.js"></script>
+    <!-- Scripts via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        // Inicialização do Reveal.js para garantir funcionamento
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'slide'
+        });
+    </script>
     
 </body>
 </html>
