@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação de Q-Learning - Blackjack</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .controls {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 60px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .stat-item {
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            flex: 1;
+            margin: 0 5px;
+        }
+        .q-table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 8px 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .state-cell {
+            font-weight: bold;
+            background-color: #ecf0f1;
+        }
+        .positive {
+            color: #27ae60;
+        }
+        .negative {
+            color: #e74c3c;
+        }
+        .training-status {
+            margin-top: 15px;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        .highlight {
+            background-color: #fffacd;
+            transition: background-color 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simulação de Q-Learning para Blackjack</h1>
+    
+    <div class="controls">
+        <h2>Controles de Treinamento</h2>
+        <div>
+            <button id="btn-step">Avançar Iteração</button>
+            <button id="btn-episode">Avançar Episódio</button>
+            <button id="btn-multiple">Avançar X Episódios</button>
+            <input type="number" id="episodes-count" value="10" min="1" max="1000">
+            <button id="btn-auto">Treinamento Automático</button>
+            <button id="btn-pause" disabled>Pausar</button>
+            <button id="btn-reset">Reiniciar</button>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">Episódio: <span id="episode-count">0</span></div>
+            <div class="stat-item">Iteração: <span id="iteration-count">0</span></div>
+            <div class="stat-item">ε (Epsilon): <span id="epsilon-value">1.00</span></div>
+            <div class="stat-item">Recompensa Média: <span id="avg-reward">0.00</span></div>
+        </div>
+        
+        <div class="training-status" id="training-status">Pronto para iniciar o treinamento...</div>
+    </div>
+    
+    <div class="q-table-container">
+        <h2>Tabela Q (Valores de Ação por Estado)</h2>
+        <table id="q-table">
+            <thead>
+                <tr>
+                    <th>Estado (Player, Dealer, Usable Ace)</th>
+                    <th>Ação: Hit (0)</th>
+                    <th>Ação: Stand (1)</th>
+                </tr>
+            </thead>
+            <tbody id="q-table-body">
+                <!-- A tabela será preenchida dinamicamente -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Configurações e hiperparâmetros
+        const config = {
+            nEpisodes: 100000,
+            learningRate: 0.01,
+            initialEpsilon: 1.0,
+            finalEpsilon: 0.1,
+            discountFactor: 0.95,
+            autoSpeed: 10  // ms entre episódios no modo automático
+        };
+        
+        // Estado da simulação
+        let simulationState = {
+            episode: 0,
+            iteration: 0,
+            epsilon: config.initialEpsilon,
+            decayEpsilon: (config.initialEpsilon - config.finalEpsilon) / (config.nEpisodes / 2),
+            qTable: new Map(), // Usaremos Map para a tabela Q
+            rewards: [],
+            currentState: null,
+            currentAction: null,
+            isTraining: false,
+            autoInterval: null
+        };
+        
+        // Elementos da UI
+        const elements = {
+            episodeCount: document.getElementById('episode-count'),
+            iterationCount: document.getElementById('iteration-count'),
+            epsilonValue: document.getElementById('epsilon-value'),
+            avgReward: document.getElementById('avg-reward'),
+            trainingStatus: document.getElementById('training-status'),
+            qTableBody: document.getElementById('q-table-body'),
+            btnStep: document.getElementById('btn-step'),
+            btnEpisode: document.getElementById('btn-episode'),
+            btnMultiple: document.getElementById('btn-multiple'),
+            btnAuto: document.getElementById('btn-auto'),
+            btnPause: document.getElementById('btn-pause'),
+            btnReset: document.getElementById('btn-reset'),
+            episodesCount: document.getElementById('episodes-count')
+        };
+        
+        // Ambiente de Blackjack simplificado
+        class BlackjackEnvironment {
+            constructor() {
+                this.reset();
+            }
+            
+            reset() {
+                this.playerHand = [this.drawCard(), this.drawCard()];
+                this.dealerHand = [this.drawCard(), this.drawCard()];
+                this.done = false;
+                return this.getState();
+            }
+            
+            drawCard() {
+                // Cartas: 1 (Ás) a 10, onde 10 representa 10, J, Q, K
+                return Math.floor(Math.random() * 10) + 1;
+            }
+            
+            getState() {
+                const playerSum = this.calculateHandValue(this.playerHand, false);
+                const dealerCard = this.dealerHand[0]; // Apenas a primeira carta do dealer é visível
+                const usableAce = this.hasUsableAce(this.playerHand);
+                
+                return `${playerSum},${dealerCard},${usableAce}`;
+            }
+            
+            calculateHandValue(hand, isDealer = false) {
+                let sum = 0;
+                let aces = 0;
+                
+                for (const card of hand) {
+                    if (card === 1) {
+                        aces++;
+                        sum += 11;
+                    } else if (card >= 10) {
+                        sum += 10;
+                    } else {
+                        sum += card;
+                    }
+                }
+                
+                // Ajustar Áses se necessário
+                while (sum > 21 && aces > 0) {
+                    sum -= 10;
+                    aces--;
+                }
+                
+                return sum;
+            }
+            
+            hasUsableAce(hand) {
+                let sum = 0;
+                let aces = 0;
+                
+                for (const card of hand) {
+                    if (card === 1) {
+                        aces++;
+                        sum += 11;
+                    } else if (card >= 10) {
+                        sum += 10;
+                    } else {
+                        sum += card;
+                    }
+                }
+                
+                // Verificar se há um Ás que ainda vale 11
+                while (sum > 21 && aces > 0) {
+                    sum -= 10;
+                    aces--;
+                }
+                
+                return aces > 0;
+            }
+            
+            step(action) {
+                if (this.done) {
+                    throw new Error("Episódio já terminou");
+                }
+                
+                // Ação 0: Hit (pedir carta)
+                // Ação 1: Stand (parar)
+                if (action === 0) {
+                    this.playerHand.push(this.drawCard());
+                    const playerSum = this.calculateHandValue(this.playerHand);
+                    
+                    if (playerSum > 21) {
+                        this.done = true;
+                        return { nextState: this.getState(), reward: -1, terminated: true };
+                    } else {
+                        return { nextState: this.getState(), reward: 0, terminated: false };
+                    }
+                } else {
+                    // ação Stand - dealer joga
+                    this.done = true;
+                    
+                    const playerSum = this.calculateHandValue(this.playerHand);
+                    let dealerSum = this.calculateHandValue(this.dealerHand, true);
+                    
+                    // Regras do dealer: hit até ter pelo menos 17
+                    while (dealerSum < 17) {
+                        this.dealerHand.push(this.drawCard());
+                        dealerSum = this.calculateHandValue(this.dealerHand, true);
+                    }
+                    
+                    // Determinar o resultado
+                    if (dealerSum > 21) {
+                        return { nextState: this.getState(), reward: 1, terminated: true };
+                    } else if (dealerSum > playerSum) {
+                        return { nextState: this.getState(), reward: -1, terminated: true };
+                    } else if (dealerSum < playerSum) {
+                        return { nextState: this.getState(), reward: 1, terminated: true };
+                    } else {
+                        return { nextState: this.getState(), reward: 0, terminated: true };
+                    }
+                }
+            }
+        }
+        
+        // Agente de Q-Learning
+        class QLearningAgent {
+            constructor(env, learningRate, discountFactor) {
+                this.env = env;
+                this.learningRate = learningRate;
+                this.discountFactor = discountFactor;
+            }
+            
+            getAction(state, epsilon) {
+                // Epsilon-greedy
+                if (Math.random() < epsilon) {
+                    // Exploração: ação aleatória
+                    return Math.random() < 0.5 ? 0 : 1;
+                } else {
+                    // Exploração: melhor ação conhecida
+                    const stateValues = simulationState.qTable.get(state) || [0.0, 0.0];
+                    return stateValues[0] >= stateValues[1] ? 0 : 1;
+                }
+            }
+            
+            update(state, action, reward, nextState, terminated) {
+                // Inicializar valores do estado se não existirem
+                if (!simulationState.qTable.has(state)) {
+                    simulationState.qTable.set(state, [0.0, 0.0]);
+                }
+                
+                if (!simulationState.qTable.has(nextState)) {
+                    simulationState.qTable.set(nextState, [0.0, 0.0]);
+                }
+                
+                const currentQ = simulationState.qTable.get(state)[action];
+                const nextMaxQ = Math.max(...simulationState.qTable.get(nextState));
+                
+                // Fórmula de atualização do Q-learning
+                const newQ = currentQ + this.learningRate * (
+                    reward + this.discountFactor * (terminated ? 0 : nextMaxQ) - currentQ
+                );
+                
+                // Atualizar a tabela Q
+                const updatedValues = [...simulationState.qTable.get(state)];
+                updatedValues[action] = newQ;
+                simulationState.qTable.set(state, updatedValues);
+                
+                return Math.abs(newQ - currentQ); // Retorna o erro temporal
+            }
+            
+            decayEpsilon() {
+                simulationState.epsilon = Math.max(
+                    config.finalEpsilon, 
+                    simulationState.epsilon - simulationState.decayEpsilon
+                );
+            }
+        }
+        
+        // Inicializar ambiente e agente
+        let environment = new BlackjackEnvironment();
+        let agent = new QLearningAgent(environment, config.learningRate, config.discountFactor);
+        
+        // Funções de UI
+        function updateUI() {
+            elements.episodeCount.textContent = simulationState.episode;
+            elements.iterationCount.textContent = simulationState.iteration;
+            elements.epsilonValue.textContent = simulationState.epsilon.toFixed(2);
+            
+            // Calcular recompensa média (últimos 100 episódios)
+            if (simulationState.rewards.length > 0) {
+                const recentRewards = simulationState.rewards.slice(-100);
+                const avg = recentRewards.reduce((a, b) => a + b, 0) / recentRewards.length;
+                elements.avgReward.textContent = avg.toFixed(2);
+            }
+            
+            updateQTable();
+        }
+        
+        function updateQTable() {
+            // Limpar tabela
+            elements.qTableBody.innerHTML = '';
+            
+            // Obter e ordenar estados
+            const states = Array.from(simulationState.qTable.keys()).sort((a, b) => {
+                const [aPlayer, aDealer, aAce] = a.split(',').map(x => isNaN(x) ? x : parseInt(x));
+                const [bPlayer, bDealer, bAce] = b.split(',').map(x => isNaN(x) ? x : parseInt(x));
+                
+                // Ordenar por usableAce, depois por playerSum, depois por dealerCard
+                if (aAce !== bAce) return aAce === 'true' ? -1 : 1;
+                if (aPlayer !== bPlayer) return aPlayer - bPlayer;
+                return aDealer - bDealer;
+            });
+            
+            // Adicionar linhas para cada estado
+            for (const state of states) {
+                const row = document.createElement('tr');
+                
+                // Célula de estado
+                const stateCell = document.createElement('td');
+                stateCell.textContent = state;
+                stateCell.className = 'state-cell';
+                row.appendChild(stateCell);
+                
+                // Valores de ação
+                const values = simulationState.qTable.get(state);
+                for (let i = 0; i < 2; i++) {
+                    const valueCell = document.createElement('td');
+                    valueCell.textContent = values[i].toFixed(3);
+                    
+                    // Destacar se for a melhor ação
+                    if (i === values.indexOf(Math.max(...values))) {
+                        valueCell.className = 'positive';
+                    }
+                    
+                    // Destacar se for atualizado recentemente
+                    if (state === simulationState.currentState && i === simulationState.currentAction) {
+                        valueCell.classList.add('highlight');
+                        setTimeout(() => {
+                            valueCell.classList.remove('highlight');
+                        }, 1000);
+                    }
+                    
+                    row.appendChild(valueCell);
+                }
+                
+                elements.qTableBody.appendChild(row);
+            }
+        }
+        
+        function runStep() {
+            if (environment.done) {
+                environment = new BlackjackEnvironment();
+                simulationState.currentState = environment.getState();
+            }
+            
+            // Escolher ação
+            const action = agent.getAction(simulationState.currentState, simulationState.epsilon);
+            simulationState.currentAction = action;
+            
+            // Executar ação
+            const { nextState, reward, terminated } = environment.step(action);
+            
+            // Atualizar Q-table
+            agent.update(simulationState.currentState, action, reward, nextState, terminated);
+            
+            // Atualizar estado
+            simulationState.currentState = nextState;
+            simulationState.iteration++;
+            
+            if (terminated) {
+                simulationState.rewards.push(reward);
+                simulationState.episode++;
+                agent.decayEpsilon();
+                
+                // Atualizar status
+                elements.trainingStatus.textContent = `Episódio ${simulationState.episode} finalizado. Recompensa: ${reward}`;
+            } else {
+                elements.trainingStatus.textContent = `Episódio ${simulationState.episode + 1} em andamento...`;
+            }
+            
+            updateUI();
+            return terminated;
+        }
+        
+        function runEpisode() {
+            let terminated = false;
+            while (!terminated) {
+                terminated = runStep();
+            }
+        }
+        
+        function runMultipleEpisodes(count) {
+            for (let i = 0; i < count; i++) {
+                runEpisode();
+            }
+        }
+        
+        function startAutoTraining() {
+            elements.btnAuto.disabled = true;
+            elements.btnPause.disabled = false;
+            elements.trainingStatus.textContent = "Treinamento automático em andamento...";
+            
+            simulationState.isTraining = true;
+            simulationState.autoInterval = setInterval(() => {
+                runEpisode();
+                
+                if (simulationState.episode >= config.nEpisodes) {
+                    stopAutoTraining();
+                }
+            }, config.autoSpeed);
+        }
+        
+        function stopAutoTraining() {
+            clearInterval(simulationState.autoInterval);
+            simulationState.isTraining = false;
+            elements.btnAuto.disabled = false;
+            elements.btnPause.disabled = true;
+            elements.trainingStatus.textContent = "Treinamento pausado";
+        }
+        
+        function resetSimulation() {
+            stopAutoTraining();
+            
+            simulationState = {
+                episode: 0,
+                iteration: 0,
+                epsilon: config.initialEpsilon,
+                decayEpsilon: (config.initialEpsilon - config.finalEpsilon) / (config.nEpisodes / 2),
+                qTable: new Map(),
+                rewards: [],
+                currentState: null,
+                currentAction: null,
+                isTraining: false,
+                autoInterval: null
+            };
+            
+            environment = new BlackjackEnvironment();
+            simulationState.currentState = environment.getState();
+            
+            updateUI();
+            elements.trainingStatus.textContent = "Simulação reiniciada";
+        }
+        
+        // Event listeners
+        elements.btnStep.addEventListener('click', () => {
+            runStep();
+        });
+        
+        elements.btnEpisode.addEventListener('click', () => {
+            runEpisode();
+        });
+        
+        elements.btnMultiple.addEventListener('click', () => {
+            const count = parseInt(elements.episodesCount.value) || 10;
+            runMultipleEpisodes(count);
+        });
+        
+        elements.btnAuto.addEventListener('click', () => {
+            startAutoTraining();
+        });
+        
+        elements.btnPause.addEventListener('click', () => {
+            stopAutoTraining();
+        });
+        
+        elements.btnReset.addEventListener('click', () => {
+            resetSimulation();
+        });
+        
+        // Inicializar
+        resetSimulation();
+    </script>
+</body>
+</html>

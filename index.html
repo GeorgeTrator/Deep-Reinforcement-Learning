@@ -19,8 +19,8 @@
                     <div class="topic-item">1) Contexto Geral</div>
                     <div class="topic-item">2) Redes Neurais</div>
                     <div class="topic-item">3) MDP</div>
-                    <div class="topic-item">4) Aprendizado por Reforço</div>
-                    <div class="topic-item">5) DQN [Deep-Q-Network]</div>
+                    <div class="topic-item">4) Aprendizado por Reforço: Q-Learning</div>
+                    <div class="topic-item">5) DQN: CartPole</div>
                     <div class="topic-item">6) Outros Exemplos</div>
                 </div>
             </section>
@@ -46,14 +46,14 @@
                     <h1>Rosenblatt: Perceptron</h1>
                     <div class="perceptron-container">
                         <div class="image-wrapper">
-                            <div class="image-caption">Figura - </div>
+                            <!-- <div class="image-caption">Figura - </div> -->
                             <img src="imgs/foto_perceptron.png" alt="Frank Rosenblatt" class="perceptron-image">
-                            <div class="image-source">Fonte</div>
+                            <!-- <div class="image-source">Fonte</div> -->
                         </div>
                         <div class="image-wrapper">
-                            <div class="image-caption">Figura - </div>
+                            <!-- <div class="image-caption">Figura - </div> -->
                             <img src="imgs/diagrama_perceptron.png" alt="Diagrama do Perceptron" class="perceptron-image">
-                            <div class="image-source">Fonte</div>
+                            <!-- <div class="image-source">Fonte</div> -->
                         </div>
                     </div>
                     <div class="perceptron-limitation">
@@ -92,15 +92,15 @@
                     </div>
                 </section>
                 <section>
-                    <h1>Ressurgimento da IA</h1>
+                    <h1>Ressurgimento</h1>
                     <div class="ressurgimento-container">
                         <div class="media-wrapper">
-                            <div class="media-caption">Vídeo - </div>
+                            <!-- <div class="media-caption">Vídeo - </div> -->
                             <video controls class="media-element">
                                 <source src="videos/DeepMindAtari.mp4" type="video/mp4">
                                 O navegador não suporta este elemento de vídeo.
                             </video>
-                            <div class="media-source">Fonte</div>
+                            <!-- <div class="media-source">Fonte</div> -->
                         </div>
                         <div class="media-wrapper">
                             <div class="media-caption">Figura (Adaptado) Operações da AlexNet</div>
@@ -141,6 +141,15 @@
                         Seu navegador não suporta vídeo em HTML5.
                     </video>
                 </section>
+
+                <section>
+                            <video class="fullscreen-video" autoplay muted data-autoplay>
+                        <source src="manim/Gradiente.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeo em HTML5.
+                    </video>
+                </section>
+
+
             </section>
 
             <!-- MDP -->
@@ -157,7 +166,7 @@
             <section>
                 <!-- Slide principal com título -->
                 <section>
-                    <h1>Aprendizado por Reforço</h1>
+                    <h1>Aprendizado por Reforço: Q-Learning</h1>
                 </section>
 
                 <section>
@@ -297,6 +306,9 @@
             <!-- DQN -->
             <section>
                 <section>
+                    <h1>DQN | CartPole</h1>
+                </section>
+                <section>
                     <h1>DQN (Deep Q-Network)</h1>
                     <div class="dqn-intro-container">
                         <div class="dqn-text hover-effect">
@@ -319,31 +331,38 @@
                 <section>
                     <h1>CartPole: O Problema</h1>
                     <div class="cartpole-problem-container">
-                        <div class="cartpole-visual hover-effect">
-                            <div class="media-caption">Figura - Ambiente CartPole</div>
-                            <img src="videos/cartpole.gif" alt="Animação do CartPole">
-                            <div class="media-source">Fonte: Gymnasium</div>
-                        </div>
-                        <div class="cartpole-details">
-                            <div class="cartpole-item hover-effect">
-                                <h1>Estado</h1>
-                                <p>4 valores contínuos:</p>
-                                <ul id="cartpole-text-li">
-                                    <li>Posição do carrinho</li>
-                                    <li>Velocidade do carrinho</li>
-                                    <li>Ângulo do poste</li>
-                                    <li>Velocidade angular do poste</li>
-                                </ul>
-                            </div>
+                    <div class="cartpole-visual hover-effect">
+                        <div class="media-caption">Figura - Ambiente CartPole</div>
+                        <img src="videos/cartpole.gif" alt="Animação do CartPole">
+                        <div class="media-source">Fonte: Gymnasium</div>
+                    </div>
+                    <div class="cartpole-details hover-effect">
+                        <h1>Estado</h1>
+                        <p>4 valores contínuos:</p>
+                        <ul id="cartpole-text-li">
+                            <li>Posição do carrinho</li>
+                            <li>Velocidade do carrinho</li>
+                            <li>Ângulo do poste</li>
+                            <li>Velocidade angular do poste</li>
+                        </ul>
+                    </div>
+                    <div class="gymnasium-image hover-effect">
+                        <div class="media-caption">Figura - Dados agrupados</div>
+                        <img src="imgs/gymnasiumimage.png" alt="Tabela: intervalos de valor por estado">
+                        <div class="media-source">Fonte: Gymnasium</div>
+                    </div>
+                </div>
+
+
                 </section>
                 
                 <section>
                     <h1>Arquitetura da Rede</h1>
                     <div class="network-architecture-container">
                         <div class="architecture-diagram hover-effect">
-                            <div class="media-caption">Figura - Arquitetura da Rede Neural</div>
-                            <img src="imgs/network_architecture.png" alt="Arquitetura da Rede" class="architecture-image">
-                            <div class="media-source">Fonte: Elaborado pelo autor</div>
+                            <div class="media-caption">Figura - Ilustração CartPole</div>
+                            <img src="imgs/cartpolerobot.png" alt="CartPole" class="architecture-image">
+                            <div class="media-source">Fonte: (Adaptado) Gemini Pro</div>
                         </div>
                         <div class="architecture-details">
                             <div class="arch-layer hover-effect">
@@ -368,8 +387,8 @@
                     <div class="replay-container">
                         <div class="replay-diagram hover-effect">
                             <div class="media-caption">Figura - Memória de Replay</div>
-                            <img src="imgs/replay_memory.png" alt="Memória de Replay" class="replay-image">
-                            <div class="media-source">Fonte: Elaborado pelo autor</div>
+                            <img src="imgs/memorybuffer.png" alt="Memória de Replay" class="replay-image">
+                            <div class="media-source">Fonte: ChatGPT-5</div>
                         </div>
                         <div class="replay-explanation">
                             <div class="replay-item hover-effect">
@@ -390,6 +409,95 @@
                         </div>
                     </div>
                 </section>
+                <!-- Um pouco de implementação -->
+<!-- Logo após a seção "Experiência de Replay" -->
+<section>
+    <h1>Implementação: Estruturas Principais</h1>
+    <div class="code-implementation-container">
+        <div class="code-block-container">
+            <div class="code-block hover-effect">
+                <h2>Memory Buffer</h2>
+                <div class="code-content">
+                    <pre><code>Transition = namedtuple('Transition',
+    ('state', 'action', 'next_state', 'reward'))
+
+class ReplayMemory(object):
+    def __init__(self, capacity):
+        self.memory = deque([], maxlen=capacity)
+    
+    def push(self, *args):
+        self.memory.append(Transition(*args))
+    
+    def sample(self, batch_size):
+        return random.sample(self.memory, batch_size)</code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="code-block-container">
+            <div class="code-block hover-effect">
+                <h2>Seleção de Ações</h2>
+                <div class="code-content">
+                    <pre><code>def select_action(state):
+    global steps_done
+    eps_threshold = get_threshold() 
+    steps_done += 1
+    
+    if random.random() > eps_threshold:
+        with torch.no_grad(): 
+            return policy_net(state).max(1).indices.view(1, 1)
+    else:
+        return torch.tensor([[env.action_space.sample()]], 
+                device=device, dtype=torch.long)</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h1>Implementação: Loop Principal</h1>
+    <div class="full-code-block hover-effect">
+        <div class="code-content">
+            <pre><code>for i_episode in range(num_episodes):
+    state, info = env.reset()
+    state = torch.tensor(state, dtype=torch.float32, 
+                device=device).unsqueeze(0)
+    
+    for t in count():
+        action = select_action(state)
+        observation, reward, terminated, truncated, _ = env.step(
+                action.item())
+        reward = torch.tensor([reward], device=device)
+        done = terminated or truncated
+        
+        if terminated:
+            next_state = None
+        else:
+            next_state = torch.tensor(observation, 
+                    dtype=torch.float32, device=device).unsqueeze(0)
+        
+        # Armazena a transição
+        memory.push(state, action, next_state, reward)
+        state = next_state
+        
+        # Otimiza o modelo
+        optimize_model()
+        
+        # Atualização suave da rede alvo
+        target_net_state_dict = target_net.state_dict()
+        policy_net_state_dict = policy_net.state_dict()
+        for key in policy_net_state_dict:
+            target_net_state_dict[key] = policy_net_state_dict[key]*TAU + \
+                    target_net_state_dict[key]*(1-TAU)
+        target_net.load_state_dict(target_net_state_dict)
+        
+        if done:
+            episode_durations.append(t + 1)
+            break</code></pre>
+        </div>
+    </div>
+</section>
+
             </section>
             <!-- Outros Exemplos -->
                 <section>
@@ -398,35 +506,27 @@
                         <div class="examples-grid">
                             <div class="example-item hover-effect">
                                 <div class="example-image-container">
-                                    <img src="imgs/atari_games.png" alt="Jogos do Atari" class="example-image">
-                                </div>
-                                <div class="example-description">
-                                    <h2>Jogos do Atari</h2>
-                                    <p>DQN originalmente demonstrado no Atari</p>
-                                    <p>Entrada: pixels da tela (210×160×3)</p>
-                                    <p>Superou humanos em vários jogos</p>
-                                </div>
-                            </div>
-                            <div class="example-item hover-effect">
-                                <div class="example-image-container">
-                                    <img src="imgs/alpha_go.png" alt="AlphaGo" class="example-image">
+                                    <img src="imgs/alpha_go.gif" alt="AlphaGo" class="example-image">
                                 </div>
                                 <div class="example-description">
                                     <h2>AlphaGo</h2>
                                     <p>Combina RL com busca em árvore</p>
                                     <p>Derrotou campeão mundial de Go</p>
                                     <p>Marco histórico para IA</p>
+                                    <p id="go-source">https://www.youtube.com/watch?v=rOL6QJdAlm8</p>
                                 </div>
                             </div>
                             <div class="example-item hover-effect">
                                 <div class="example-image-container">
-                                    <img src="imgs/robotic_control.png" alt="Controle Robótico" class="example-image">
+                                    <img src="videos/robotmove.gif" alt="Controle Robótico" class="example-image" autoplay loop muted playsinline>
+                                </img>
                                 </div>
                                 <div class="example-description">
                                     <h2>Controle Robótico</h2>
                                     <p>Aprendizado de políticas de controle</p>
                                     <p>Locomoção e manipulação de objetos</p>
                                     <p>Aplicações industriais e de pesquisa</p>
+                                    <p id="robot-move-source">https://enterpriserh.com.br/blog/inteligencia-artificial-no-rh/</p>
                                 </div>
                             </div>
                         </div>
@@ -471,5 +571,6 @@
 
     <script src="node_modules/reveal.js/dist/reveal.js"></script>
     <script src="script.js"></script>
+    
 </body>
 </html>
