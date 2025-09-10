@@ -19,7 +19,7 @@
                     <div class="topic-item">1) Contexto Geral</div>
                     <div class="topic-item">2) Redes Neurais</div>
                     <div class="topic-item">3) MDP</div>
-                    <div class="topic-item">4) Q-Learning</div>
+                    <div class="topic-item">4) Aprendizado por Reforço</div>
                     <div class="topic-item">5) DQN [Deep-Q-Network]</div>
                     <div class="topic-item">6) Outros Exemplos</div>
                 </div>
@@ -44,19 +44,19 @@
                 </section>
                 <section>
                     <h1>Rosenblatt: Perceptron</h1>
-                    <div style="display: flex; justify-content: space-around; align-items: center; width: 100%; height: 70%; margin-top: 20px;">
-                        <div style="display: flex; flex-direction: column; align-items: center; width: 45%;">
-                            <span style="font-size: 0.8rem; margin-bottom: 5px;">Figura - </span>
-                            <img src="imgs/foto_perceptron.png" alt="Frank Rosenblatt" style="width: 100%; max-height: 300px; object-fit: contain; border: 1px solid #28A745; border-radius: 5px;">
-                            <span style="font-size: 0.7rem; margin-top: 5px;">Fonte</span>
+                    <div class="perceptron-container">
+                        <div class="image-wrapper">
+                            <div class="image-caption">Figura - </div>
+                            <img src="imgs/foto_perceptron.png" alt="Frank Rosenblatt" class="perceptron-image">
+                            <div class="image-source">Fonte</div>
                         </div>
-                        <div style="display: flex; flex-direction: column; align-items: center; width: 45%;">
-                            <span style="font-size: 0.8rem; margin-bottom: 5px;">Figura - </span>
-                            <img src="imgs/diagrama_perceptron.png" alt="Diagrama do Perceptron" style="width: 100%; max-height: 300px; object-fit: contain; border: 1px solid #28A745; border-radius: 5px;">
-                            <span style="font-size: 0.7rem; margin-top: 5px;">Fonte</span>
+                        <div class="image-wrapper">
+                            <div class="image-caption">Figura - </div>
+                            <img src="imgs/diagrama_perceptron.png" alt="Diagrama do Perceptron" class="perceptron-image">
+                            <div class="image-source">Fonte</div>
                         </div>
                     </div>
-                    <div style="margin-top: 20px; color: red; font-weight: bold; font-size: 0.9rem;">
+                    <div class="perceptron-limitation">
                         Limitado à classificação binária
                     </div>
                 </section>
@@ -65,19 +65,19 @@
                         <h1>Inverno da IA</h1>
                         <p>Período de redução no financiamento e interesse em pesquisa de inteligência artificial</p>
                         
-                        <div style="display: flex; justify-content: space-around; margin-top: 40px;">
-                            <div style="width: 45%;">
-                                <h3 style="color: #a8d8ea;">Causas</h3>
-                                <ul style="font-size: 1.2rem;">
+                        <div class="winter-container">
+                            <div class="winter-column">
+                                <h1 class="winter-subtitle">Causas</h1>
+                                <ul class="winter-list">
                                     <li>Limitações hardware</li>
                                     <li>Expectativas irreais</li>
                                     <li>Críticas ao perceptron</li>
                                     <li>Redução de financiamento</li>
                                 </ul>
                             </div>
-                            <div style="width: 45%;">
-                                <h3 style="color: #a8d8ea;">Consequências</h3>
-                                <ul style="font-size: 1.2rem;">
+                            <div class="winter-column">
+                                <h1 class="winter-subtitle">Consequências</h1>
+                                <ul class="winter-list">
                                     <li>Estagnação da pesquisa</li>
                                     <li>Ceticismo na comunidade</li>
                                     <li>Mudança de terminologia</li>
@@ -86,148 +86,390 @@
                             </div>
                         </div>
                         
-                        <div style="margin-top: 40px; font-style: italic; color: #a8d8ea; font-size: 20px;">
+                        <div class="silicon-bubble">
                             Silicon Bubble
                         </div>
                     </div>
                 </section>
                 <section>
                     <h1>Ressurgimento da IA</h1>
-                    <p>Conteúdo sobre o ressurgimento da IA por volta de 2013</p>
+                    <div class="ressurgimento-container">
+                        <div class="media-wrapper">
+                            <div class="media-caption">Vídeo - </div>
+                            <video controls class="media-element">
+                                <source src="videos/DeepMindAtari.mp4" type="video/mp4">
+                                O navegador não suporta este elemento de vídeo.
+                            </video>
+                            <div class="media-source">Fonte</div>
+                        </div>
+                        <div class="media-wrapper">
+                            <div class="media-caption">Figura (Adaptado) Operações da AlexNet</div>
+                            <img src="imgs/AlexNet.png" alt="AlexNet" class="media-element">
+                            <div class="media-source">developer.ibm.com/articles/introduction-to-convolutional-neural-networks/ </div>
+                        </div>
+                    </div>
+                    
                 </section>
+            <!-- Final de Contexto Geral -->
             </section>
-
             <!-- Redes Neurais -->
             <section>
-                <h1>Redes Neurais</h1>
-                <p>Conteúdo sobre Redes Neurais</p>
+                <section>
+                    <h1>Redes Neurais</h1>
+                </section>
+                <section>
+                    <video class="fullscreen-video" autoplay muted data-autoplay>
+                        <source src="manim/NeuralNetworkComplete.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeo em HTML5.
+                    </video>
+                </section>
+                <section>
+                    <video class="fullscreen-video" autoplay muted data-autoplay>
+                        <source src="manim/Operation1.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeo em HTML5.
+                    </video>
+                </section>
+                <section>
+                    <video class="fullscreen-video" autoplay muted data-autoplay>
+                        <source src="manim/MatrixStandardization.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeo em HTML5.
+                    </video>
+                </section>
+                <section>
+                    <video class="fullscreen-video" autoplay muted data-autoplay>
+                        <source src="manim/LossFunction.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeo em HTML5.
+                    </video>
+                </section>
             </section>
 
             <!-- MDP -->
             <section>
+
                 <h1>MDP (Processo de Decisão Markov)</h1>
-                <p>Conteúdo sobre MDP</p>
+                <div class = "mdp-container">
+                    <div class="media-caption">Figura - Diagrama do MDP</div>
+                    <img src="imgs/mdp.png" alt="Processo de Decisão de Markov" class="media-element">
+                    <div class="media-source">Fonte: elaborado pelo autor</div>
+                </div>
             </section>
-
-            <!-- Q-Learning -->
+            <!-- Q-Learning: Reinforcement Learning -->
             <section>
-                <h1>Q-Learning</h1>
-                <p>Conteúdo sobre Q-Learning</p>
-            </section>
+                <!-- Slide principal com título -->
+                <section>
+                    <h1>Aprendizado por Reforço</h1>
+                </section>
 
+                <section>
+                    <h1>Decisões Sequenciais</h1>
+                        <div class="epsilon-image-container hover-effect">
+                            <div class="media-caption">Figura - Exploração X Aproveitamento</div>
+                            <img src="imgs/restaurants.png" alt="Exploração vs. Aproveitamento" class="epsilon-image">
+                            <div class="media-source">Fonte: Grok 4</div>
+                        </div>
+
+                </section>
+                
+                <section>
+                    <h1>k-arm bandit</h1>
+                    <div class="bandit-images-container">
+                        <div class="karm-container">
+                            <div class="media-caption">Figura - Gráfico do k-arm</div>
+                            <img src="imgs/karmproblem.jpg" alt="Gráfico do 'k-arm problem'" class="hover-effect karm-image">
+                            <div class="media-source">Fonte: SUTTON; BARTO (2018).</div>
+                        </div>
+                        <div class="octopus-container hover-effect">
+                            <div class="media-caption">Figura - Um polvo</div>
+                            <img src="imgs/octopus.jpg" alt="Um polvo jogando no cassino" class="hover-effect octopus-image">
+                            <div class="media-source">Fonte: https://towardsdatascience.com/reinforcement-learning-multi-arm-bandit-implementation-5399ef67b24b/</div>
+                        </div>
+                    </div>
+                </section>  
+
+                <section>
+                    <h1>O Problema: O Jogo de BlackJack</h1>
+                    <div class="blackjack-container">
+                        <div class="blackjack-text hover-effect">
+                            <p>Objetivo: somar mais que a casa sem estourar 21.</p>
+                            <p>Regras simplificadas (jogador vs. casa, cartas visíveis/oculta).</p>
+                            <p>Ações: "Pedir" ou "Parar".</p>
+                            <p class="highlighted-text">O agente NÃO conhece as regras. Ele só recebe um estado.</p>
+                        </div>
+                        <div class="blackjack-image-container hover-effect">
+                            <div class="media-caption">Figura - IA jogando BlackJack</div>
+                            <img src="imgs/blackjack.jpg" alt="BlackJack" class="blackjack-image">
+                            <div class="media-source">Fonte: IA Generativa (Grok4)</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 2: O Estado do Agente -->
+                <section>
+                    <h1>O Estado do Agente</h1>
+                    <div class="state-container">
+                        <div class="state-tuple generic-state hover-effect">
+                            (Inteiro, Inteiro, Booleano)
+                        </div>
+                        <div class="state-explanation">
+                            (Soma_jogador, Soma_casa, Tem_Ás)
+                        </div>
+                        <div class="example-container">
+                            <div class="state-tuple example-state hover-effect">
+                                (15, 10, True)
+                            </div>
+                            <div class="state-arrow">↓</div>
+                            <div class="possible-states">
+                                <div class="hover-effect">(15, 21, True)</div>
+                                <div class="hover-effect">(15, 19, True)</div>
+                                <div class="state-ellipsis">.</div>
+                                <div class="state-ellipsis">.</div>
+                                <div class="state-ellipsis">.</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 3: A Estratégia do Agente -->
+                <section>
+                    <h1>A Estratégia do Agente - ε-greedy</h1>
+                    <div class="epsilon-container">
+                        <div class="code-container hover-effect">
+                            <pre><code class="python">def escolher_acao(estado):
+    if random() < epsilon: 
+        return acao_aleatoria()   # Explorar (Exploration)
+    else:
+        return melhor_acao(estado) # Aproveitar (Exploitation)</code></pre>
+                        </div>
+                        <div class="epsilon-image-container hover-effect">
+                            <div class="media-caption">Figura - Exploração X Aproveitamento</div>
+                            <img src="imgs/restaurants.png" alt="Exploração vs. Aproveitamento" class="epsilon-image">
+                            <div class="media-source">Fonte: Grok 4</div>
+                        </div>
+                    </div>
+                    <div class="epsilon-footer">
+                        Paradigma do RL: trade-off Exploration x Exploitation
+                    </div>
+                </section>
+                <section>
+                    <h1>A função Q-Learning</h1>
+                    <table class="q-learning-table">
+                    <thead>
+                        <tr>
+                        <th>Estado (Jogador, Casa, Tem Ás)</th>
+                        <th>Pedir</th>
+                        <th>Parar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>(15, 7, Não)</td>
+                        <td>+0.33</td>
+                        <td>-0.35</td>
+                        </tr>
+                        <tr>
+                        <td>(18, 5, Sim)</td>
+                        <td>-0.41</td>
+                        <td>-0.42</td>
+                        </tr>
+                        <tr>
+                        <td>(21, 2, Sim)</td>
+                        <td>-1.00</td>
+                        <td>+0.95</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                    <p>Q(st,at) <- Q(st, at) + α[r(t+1) + γmaxQ(st+1, a) - Q(st, at)]</p>
+                    <p> st = Estado atual; at = Ação tomada no estado atual; α = Taxa de aprendizado*</p>
+                    <p>r(t+1) = melhor recompensa do estado futuro; γ = Fator de desconto*</p>
+                    <p>max = índice da melhor resposta futura [0: Pedir, 1: Parar]; st+1 = próximo estado</p>
+                    <p>*α e γ são parâmetros especiais (hiper-parâmetros)</p>
+                </section>
+                <section>
+                    <h1>Resultados do Treinamento</h1>
+                    <div class="results-container hover-effect">
+                        <div class="media-caption">Figura - Gráfico de médias móveis</div>
+                        <img src="imgs/results.jpg" alt="Gráfico de médias móveis" class="hover-effect "> 
+                        <div class="media-source">Fonte: Elaborado pelo autor</div>
+                    </div>
+                </section>
+
+            </section>
             <!-- DQN -->
             <section>
-                <h1>DQN (Deep Q-Network)</h1>
-                <p>Conteúdo sobre DQN</p>
+                <section>
+                    <h1>DQN (Deep Q-Network)</h1>
+                    <div class="dqn-intro-container">
+                        <div class="dqn-text hover-effect">
+                            <p>Combina Q-Learning com Redes Neurais Profundas</p>
+                            <p>Capaz de aprender diretamente de dados sensoriais brutos</p>
+                            <p>Dois componentes principais:</p>
+                            <ul id="dqn-intro-li">
+                                <li>Rede principal (policy network)</li>
+                                <li>Rede alvo (target network)</li>
+                            </ul>
+                        </div>
+                        <div class="dqn-image-container hover-effect">
+                            <div class="media-caption">Figura - Arquitetura DQN</div>
+                            <img src="imgs/dqn_architecture.png" alt="Arquitetura DQN" class="dqn-image">
+                            <div class="media-source">Fonte: Adaptado https://www.youtube.com/watch?v=M6tauX9ySoo</div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section>
+                    <h1>CartPole: O Problema</h1>
+                    <div class="cartpole-problem-container">
+                        <div class="cartpole-visual hover-effect">
+                            <div class="media-caption">Figura - Ambiente CartPole</div>
+                            <img src="videos/cartpole.gif" alt="Animação do CartPole">
+                            <div class="media-source">Fonte: Gymnasium</div>
+                        </div>
+                        <div class="cartpole-details">
+                            <div class="cartpole-item hover-effect">
+                                <h1>Estado</h1>
+                                <p>4 valores contínuos:</p>
+                                <ul id="cartpole-text-li">
+                                    <li>Posição do carrinho</li>
+                                    <li>Velocidade do carrinho</li>
+                                    <li>Ângulo do poste</li>
+                                    <li>Velocidade angular do poste</li>
+                                </ul>
+                            </div>
+                </section>
+                
+                <section>
+                    <h1>Arquitetura da Rede</h1>
+                    <div class="network-architecture-container">
+                        <div class="architecture-diagram hover-effect">
+                            <div class="media-caption">Figura - Arquitetura da Rede Neural</div>
+                            <img src="imgs/network_architecture.png" alt="Arquitetura da Rede" class="architecture-image">
+                            <div class="media-source">Fonte: Elaborado pelo autor</div>
+                        </div>
+                        <div class="architecture-details">
+                            <div class="arch-layer hover-effect">
+                                <h1>Entrada</h1>
+                                <p>4 neurônios (estado)</p>
+                            </div>
+                            <div class="arch-layer hover-effect">
+                                <h1>Camadas Ocultas</h1>
+                                <p>2 camadas densas (128 unidades cada)</p>
+                                <p>Ativação ReLU</p>
+                            </div>
+                            <div class="arch-layer hover-effect">
+                                <h1>Saída</h1>
+                                <p>2 neurônios (valores Q para cada ação)</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section>
+                    <h1>Experiência de Replay</h1>
+                    <div class="replay-container">
+                        <div class="replay-diagram hover-effect">
+                            <div class="media-caption">Figura - Memória de Replay</div>
+                            <img src="imgs/replay_memory.png" alt="Memória de Replay" class="replay-image">
+                            <div class="media-source">Fonte: Elaborado pelo autor</div>
+                        </div>
+                        <div class="replay-explanation">
+                            <div class="replay-item hover-effect">
+                                <h1>Problema</h1>
+                                <p>Experiências sequenciais são correlacionadas</p>
+                            </div>
+                            <div class="replay-item hover-effect">
+                                <h1>Solução</h1>
+                                <p>Armazenar experiências (s, a, r, s')</p>
+                                <p>Amostrar aleatoriamente para treino</p>
+                                <p>Quebra correlações temporais</p>
+                            </div>
+                            <div class="replay-item hover-effect">
+                                <h1>Vantagem</h1>
+                                <p>Reutiliza experiências passadas</p>
+                                <p>Maior eficiência de dados</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </section>
-
             <!-- Outros Exemplos -->
-            <section>
-                <h1>Outros Exemplos</h1>
-                <p>Conteúdo sobre outros exemplos</p>
-            </section>
+                <section>
+                    <h1>Outros Exemplos</h1>
+                    <div class="other-examples-container">
+                        <div class="examples-grid">
+                            <div class="example-item hover-effect">
+                                <div class="example-image-container">
+                                    <img src="imgs/atari_games.png" alt="Jogos do Atari" class="example-image">
+                                </div>
+                                <div class="example-description">
+                                    <h2>Jogos do Atari</h2>
+                                    <p>DQN originalmente demonstrado no Atari</p>
+                                    <p>Entrada: pixels da tela (210×160×3)</p>
+                                    <p>Superou humanos em vários jogos</p>
+                                </div>
+                            </div>
+                            <div class="example-item hover-effect">
+                                <div class="example-image-container">
+                                    <img src="imgs/alpha_go.png" alt="AlphaGo" class="example-image">
+                                </div>
+                                <div class="example-description">
+                                    <h2>AlphaGo</h2>
+                                    <p>Combina RL com busca em árvore</p>
+                                    <p>Derrotou campeão mundial de Go</p>
+                                    <p>Marco histórico para IA</p>
+                                </div>
+                            </div>
+                            <div class="example-item hover-effect">
+                                <div class="example-image-container">
+                                    <img src="imgs/robotic_control.png" alt="Controle Robótico" class="example-image">
+                                </div>
+                                <div class="example-description">
+                                    <h2>Controle Robótico</h2>
+                                    <p>Aprendizado de políticas de controle</p>
+                                    <p>Locomoção e manipulação de objetos</p>
+                                    <p>Aplicações industriais e de pesquisa</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-            <!-- RESUMO -->
-            <section>
-                <h1>Resumo</h1>
-                <p>Conteúdo do resumo da apresentação</p>
-            </section>
+                <!-- RESUMO -->
+                <section>
+                    <h1>Resumo</h1>
+                    <div class="summary-container">
+                        <div class="key-points-grid">
+                            <div class="point-item hover-effect">
+                                <i class="fas fa-brain"></i>
+                                <h2>Redes Neurais</h2>
+                                <p>Aproximadores de função universais</p>
+                                <p>Capazes de aprender representações</p>
+                            </div>
+                            <div class="point-item hover-effect">
+                                <i class="fas fa-chess"></i>
+                                <h2>Decisões Sequenciais</h2>
+                                <p>MDP formaliza problemas sequenciais</p>
+                                <p>Trade-off exploração vs. aproveitamento</p>
+                            </div>
+                            <div class="point-item hover-effect">
+                                <i class="fas fa-bolt"></i>
+                                <h2>Aprendizado por Reforço</h2>
+                                <p>Aprender com interação e feedback</p>
+                                <p>Q-learning: aprender função valor</p>
+                            </div>
+                            <div class="point-item hover-effect">
+                                <i class="fas fa-project-diagram"></i>
+                                <h2>DQN</h2>
+                                <p>Combina Q-learning com redes profundas</p>
+                                <p>Replay de experiência e rede alvo</p>
+                            </div>
+
+                    </div>
+                </section>
+
         </div>
     </div>
 
     <script src="node_modules/reveal.js/dist/reveal.js"></script>
-    <script>
-        Reveal.initialize({
-            hash: true,
-            transition: 'slide',
-            backgroundTransition: 'fade'
-        });
-    </script>
-    <script>
-    // Adicionar funcionalidade de expansão de imagens
-    document.addEventListener('DOMContentLoaded', function() {
-        // Criar overlay para expansão de imagens
-        const overlay = document.createElement('div');
-        overlay.className = 'image-expand-overlay';
-        
-        const imageContainer = document.createElement('div');
-        imageContainer.className = 'image-expand-container';
-        
-        const expandedImg = document.createElement('img');
-        imageContainer.appendChild(expandedImg);
-        overlay.appendChild(imageContainer);
-        
-        document.body.appendChild(overlay);
-        
-        // Adicionar evento de clique para fechar
-        overlay.addEventListener('click', function() {
-            overlay.style.display = 'none';
-        });
-        
-        // Adicionar eventos de clique para todas as imagens
-        const allImages = document.querySelectorAll('img');
-        allImages.forEach(img => {
-            img.addEventListener('click', function(e) {
-                e.stopPropagation();
-                expandedImg.src = this.src;
-                overlay.style.display = 'flex';
-            });
-        });
-    });
-    </script>
-    <script>
-                // Adicionar controles para o tema de inverno
-        Reveal.addEventListener('ready', function() {
-            // Adicionar efeito de transição para o slide de inverno
-            Reveal.addEventListener('slidechanged', function(event) {
-                // Verificar se é o slide do Inverno da IA
-                if (event.currentSlide.querySelector('h1') && 
-                    event.currentSlide.querySelector('h1').textContent === 'Inverno da IA') {
-                    
-                    // Aplicar tema de inverno ao corpo
-                    document.querySelector('.reveal').classList.add('winter-theme');
-                    
-                    // Adicionar flocos de neve
-                    addSnowflakes();
-                    
-                } else {
-                    // Remover tema de inverno
-                    document.querySelector('.reveal').classList.remove('winter-theme');
-                    
-                    // Remover flocos de neve
-                    removeSnowflakes();
-                }
-            });
-        });
-
-        // Função para adicionar flocos de neve
-        function addSnowflakes() {
-            const snowflakes = document.createElement('div');
-            snowflakes.className = 'snowflakes';
-            
-            for (let i = 0; i < 50; i++) {
-                const snowflake = document.createElement('div');
-                snowflake.className = 'snowflake';
-                snowflake.innerHTML = '❄';
-                snowflake.style.left = Math.random() * 100 + 'vw';
-                snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
-                snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
-                snowflakes.appendChild(snowflake);
-            }
-            
-            document.querySelector('.reveal').appendChild(snowflakes);
-        }
-
-        // Função para remover flocos de neve
-        function removeSnowflakes() {
-            const snowflakes = document.querySelector('.snowflakes');
-            if (snowflakes) {
-                snowflakes.remove();
-            }
-        }
-
-    </script>
-
-
+    <script src="script.js"></script>
 </body>
 </html>

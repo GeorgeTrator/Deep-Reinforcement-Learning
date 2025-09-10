@@ -1,3 +1,4 @@
+/* COMEÇO DE ESTILOS GLOBAIS */
 body {
     margin: 0;
     padding: 0;
@@ -20,6 +21,77 @@ body {
     padding: 20px;
 }
 
+.reveal h1 {
+    color: #28A745;
+    font-size: 2.5rem;
+}
+
+.reveal p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Estilos para expansão de imagens */
+.image-expand-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.image-expand-container {
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-expand-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border: 2px solid #28A745;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(111, 66, 193, 0.7);
+}
+
+/* Ajustes para responsividade */
+@media (max-width: 768px) {
+    .contexto-geral-content {
+        flex-direction: column;
+    }
+    
+    .mccarthy-image-container {
+        width: 200px;
+        height: 200px;
+        margin-top: 20px;
+    }
+    
+    .topic-item {
+        width: 90%;
+        font-size: 1.2rem;
+    }
+}
+
+/* Efeito de hover consistente para todas as divs */
+.hover-effect:hover {
+    background-color: rgba(14, 171, 50, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 
+                0 0 15px rgba(37, 4, 99, 0.5);
+    border-color: #bcd70e;
+}
+
+/* FIM DE ESTILOS GLOBAIS */
+/* COMEÇO DE SUMÁRIO */
 .summary-title {
     text-align: center;
     font-size: 2.5rem;
@@ -68,8 +140,8 @@ body {
     top: 50%;
     transform: translateY(-50%);
 }
-
-/* Estilos para Contexto Geral */
+/* FIM DE SUMÁRIO */
+/* COMEÇO DE CONTEXTO GERAL */
 .contexto-geral-container {
     display: flex;
     flex-direction: column;
@@ -151,67 +223,7 @@ body {
     object-fit: cover;
 }
 
-/* Outros estilos semelhantes ao original */
-.reveal h1 {
-    color: #28A745;
-    font-size: 2.5rem;
-}
-
-.reveal p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
-
-/* Ajustes para responsividade */
-@media (max-width: 768px) {
-    .contexto-geral-content {
-        flex-direction: column;
-    }
-    
-    .mccarthy-image-container {
-        width: 200px;
-        height: 200px;
-        margin-top: 20px;
-    }
-    
-    .topic-item {
-        width: 90%;
-        font-size: 1.2rem;
-    }
-}
-
-/* Estilos para expansão de imagens */
-.image-expand-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.9);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    cursor: pointer;
-}
-
-.image-expand-container {
-    max-width: 90%;
-    max-height: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.image-expand-container img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    border: 2px solid #28A745;
-    border-radius: 5px;
-    box-shadow: 0 0 20px rgba(111, 66, 193, 0.7);
-}
-
+/* COMEÇO DO (SUB) SLIDE DE INVERNO */
 /* Efeito de transição gelada */
 .reveal .slides section[data-state="winter-theme"] {
     background: linear-gradient(135deg, #0a2a42 0%, #1e3c5a 50%, #2c4e6e 100%);
@@ -278,3 +290,725 @@ body {
     z-index: 2;
 }
 
+.perceptron-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+    margin-top: 20px;
+}
+
+.image-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+}
+
+.image-caption {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+
+.perceptron-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border: 1px solid #28A745;
+    border-radius: 5px;
+}
+
+.image-source {
+    font-size: 0.7rem;
+    margin-top: 5px;
+}
+
+.perceptron-limitation {
+    margin-top: 20px;
+    color: red;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.winter-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.winter-column {
+    width: 45%;
+}
+
+.winter-subtitle {
+    color: #a8d8ea;
+}
+
+.winter-list {
+    font-size: 1.2rem;
+}
+
+.silicon-bubble {
+    margin-top: 40px;
+    font-style: italic;
+    color: #a8d8ea;
+    font-size: 20px;
+}
+
+.ressurgimento-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+    margin-top: 20px;
+}
+
+.media-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+}
+
+.media-caption {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+.media-source{
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.media-element {
+    width: 100%;
+    border: 1px solid #28A745;
+    border-radius: 5px;
+}
+
+.media-element[type="video"] {
+    object-fit: contain;
+}
+/* FIM DO (SUB) SLIDE DE INVERNO */
+/* FIM DE CONTEXTO GERAL */
+
+/* ESTILOS PARA REDES NEURAIS*/
+.fullscreen-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain;
+    background-color: black;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+
+/* FIM DE ESTILOS PARA REDES NEURAIS */
+
+
+
+/* COMEÇO DE REFORÇO POR APRENDIZADO */
+/* Estilos do slide BlackJack */
+
+/*O PROBLEMA DOS "BRAÇOS BANDIDOS" */
+
+.bandit-images-container {
+    display: flex;
+    justify-content: center;  /* centraliza as imagens horizontalmente */
+    align-items: flex-start;  /* alinha pelo topo */
+    gap: 40px;                /* espaço entre as imagens */
+}
+
+.karm-container, .octopus-container {
+    text-align: center;
+    max-width: 45%;           /* evita que quebrem a linha por largura excessiva */
+}
+
+/*FIM DO K-ARM PROBLEM */
+
+.blackjack-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+    margin-top: 20px;
+}
+
+.blackjack-text {
+    width: 45%;
+    padding: 20px;
+    background-color: rgba(40, 167, 69, 0.1);
+    border: 1px solid #28A745;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.blackjack-image-container {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blackjack-image {
+    max-width: 100%;
+    max-height: 300px;
+    border: 1px solid #28A745;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    object-fit: contain;
+}
+
+.highlighted-text {
+    font-weight: bold;
+    color: #6F42C1;
+    margin-top: 15px;
+}
+
+/* Estado do Agente */
+.state-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+    margin-top: 20px;
+}
+
+.state-tuple {
+    padding: 15px 30px;
+    background-color: rgba(40, 167, 69, 0.1);
+    border: 1px solid #28A745;
+    border-radius: 8px;
+    font-family: monospace;
+    text-align: center;
+    margin: 10px 0;
+    transition: all 0.3s ease;
+}
+
+.generic-state {
+    font-size: 1.8rem;
+    width: 80%;
+}
+
+.state-explanation {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color: #6F42C1;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.example-state {
+    font-size: 1.4rem;
+    width: 40%;
+}
+
+.state-arrow {
+    font-size: 2rem;
+    margin: 10px 0;
+    color: #28A745;
+}
+
+.possible-states {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.possible-states div {
+    margin: 5px 0;
+    font-family: monospace;
+    padding: 8px 15px;
+    background-color: rgba(40, 167, 69, 0.1);
+    border: 1px solid #28A745;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.state-ellipsis {
+    font-size: 1.5rem;
+    line-height: 0.5;
+}
+/* FIM DO ESTADO DO AGENTE */
+
+/* Estratégia do Agente */
+.epsilon-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+    margin-top: 20px;
+}
+
+.code-container {
+    width: 45%;
+    transition: all 0.3s ease;
+}
+
+.code-container pre {
+    background-color: #2d2d2d;
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid #28A745;
+    transition: all 0.3s ease;
+}
+
+.code-container code {
+    color: #f8f8f2;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+.epsilon-image-container {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.epsilon-image {
+    max-width: 100%;
+    max-height: 250px;
+    border: 1px solid #28A745;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    object-fit: contain;
+}
+
+.epsilon-footer {
+    margin-top: 20px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: 1.2rem;
+}
+/*Fim da Estratégia do Agente */
+/* A função Q-Learning */
+.q-learning-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 8px rgba(207, 13, 13, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.q-learning-table th {
+  background-color: #000000;
+  color: white;
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.q-learning-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #28A745;
+}
+
+.q-learning-table tr:nth-child(even) {
+  background-color: #242925;
+}
+
+.q-learning-table tr:hover {
+  background-color: #2590c5;
+}
+
+.q-learning-table tr:last-child td {
+  border-bottom: none;
+}
+/*FIM DA FUNÇÃO Q-LEARNING */
+
+/* COMEÇO DE RESULTADOS*/
+.results-container{
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+    margin-top: 20px;
+}
+
+.results{
+    max-width: 100%;
+    max-height: 300px;
+    border: 1px solid #28A745;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    object-fit: contain;
+}
+
+
+/* FIM DE RESULTADOS*/
+
+/* FIM DE RL */
+/* COMEÇO DE DQN */
+.dqn-intro-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+    margin-top: 20px;
+}
+
+.dqn-text {
+    width: 45%;
+    padding: 20px;
+    background-color: rgba(40, 167, 69, 0.1);
+    border: 1px solid #28A745;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#dqn-intro-li{
+    font-style: bold;
+    font-size: 16px;
+    color:red;
+}
+
+.dqn-image-container {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dqn-image {
+    max-width: 100%;
+    max-height: 300px;
+    border: 1px solid #28A745;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    object-fit: contain;
+}
+
+.cartpole-problem-container {
+    flex-direction: column;
+    width: 50%;
+    margin-top: 20px;
+}
+
+.cartpole-item {
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(40, 167, 69, 0.1);
+    border: 1px solid #28A745;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cartpole-details{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#cartpole-text-li{
+    font-size: 16px;
+}
+
+
+.network-architecture-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+    margin-top: 20px;
+}
+
+.architecture-diagram {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.architecture-image {
+    max-width: 100%;
+    max-height: 300px;
+    border: 1px solid #28A745;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    object-fit: contain;
+}
+
+.architecture-details {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.arch-layer {
+    padding: 15px;
+    background-color: rgba(40, 167, 69, 0.1);
+    border: 1px solid #28A745;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.replay-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+    margin-top: 20px;
+}
+
+.replay-diagram {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.replay-image {
+    max-width: 100%;
+    max-height: 300px;
+    border: 1px solid #28A745;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    object-fit: contain;
+}
+
+.replay-explanation {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.replay-item {
+    padding: 15px;
+    background-color: rgba(40, 167, 69, 0.1);
+    border: 1px solid #28A745;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.training-process-container {
+    width: 100%;
+    height: 80%;
+    margin-top: 20px;
+}
+
+.training-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.training-step {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: rgba(40, 167, 69, 0.1);
+    border: 1px solid #28A745;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #6F42C1;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.step-description {
+    flex-grow: 1;
+}
+
+/* FIM DE DQN */
+
+/* COMEÇO DE OUTROS EXEMPLOS */
+.other-examples-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+    margin-top: 10px;
+}
+
+.examples-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 20px;
+    width: 90%;
+    height: 90%;
+}
+
+.example-item {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background-color: rgba(40, 167, 69, 0.1);
+    border: 1px solid #28A745;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+.example-image-container {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.example-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+    border: 1px solid #28A745;
+}
+
+.example-description {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.example-description h2 {
+    color: #28A745;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.example-description p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* FIM DE OUTROS EXEMPLOS */
+
+/* COMEÇO DE RESUMO */
+.summary-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+    margin-top: 10px;
+}
+
+.key-points-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    width: 90%;
+    height: 80%;
+}
+
+.point-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-color: rgba(40, 167, 69, 0.1);
+    border: 1px solid #28A745;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.point-item i {
+    font-size: 2rem;
+    color: #6F42C1;
+    margin-bottom: 10px;
+}
+
+.point-item h2 {
+    color: #28A745;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.point-item p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.final-message {
+    width: 80%;
+    padding: 15px;
+    background-color: rgba(40, 167, 69, 0.1);
+    border: 1px solid #28A745;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* FIM DE RESUMO */
+
+/* AJUSTES RESPONSIVOS */
+@media (max-width: 768px) {
+    .examples-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+    }
+    
+    .key-points-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+    }
+    
+    .example-image-container {
+        height: 120px;
+    }
+    
+    .point-item i {
+        font-size: 1.5rem;
+    }
+    
+    .point-item h2 {
+        font-size: 1.2rem;
+    }
+}
